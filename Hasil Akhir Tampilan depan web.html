@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Data Kota Yogyakarta</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header dengan latar belakang merah */
+        header {
+            background-color: #d9534f; /* Merah */
+            padding: 20px;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        h1 {
+            color: #fff; /* Warna teks putih untuk kontras dengan latar merah */
+        }
+
+        .container {
+            padding: 20px;
+            overflow-x: auto; /* Tambahkan scroll horizontal jika tabel terlalu besar */
+        }
+
+        table {
+            width: 100%; /* Memastikan tabel menggunakan seluruh lebar kontainer */
+            max-width: 100%; /* Membatasi lebar tabel agar tidak melebihi lebar layar */
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            word-wrap: break-word; /* Membungkus teks agar sesuai dengan lebar kolom */
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #map {
+            height: 400px;
+            margin-top: 20px;
+            /* ukuran peta */
+        }
+
+        /* Animasi Teks */
+        @keyframes slide {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing : border-box;
+            background-color: #000; /* Latar belakang hitam */
+            padding: 10px;
+            margin-top: 10px; /* Jarak antara header dan animasi */
+        }
+
+        .marquee p {
+            display: inline-block;
+            padding-left: 100%;
+            animation: slide 6s linear infinite;
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFD700; /* Warna teks emas */
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header dengan logo Kota Yogyakarta -->
+    <header>
+        <img src="https://jogjakota.go.id/file/content/image/d22b1-Logo_Kota_Yogyakarta.png" alt="Logo Kota Yogyakarta">
+        <h1>Data Kota Yogyakarta</h1>
+    </header>
+
+    <!-- Animasi teks berjalan  -->
+    <div class="marquee">
+        <p>Website Resmi Kota Yogyakarta</p>
+    </div>
+
+    <div class="container">
+        <!-- Tabel Data -->
+        <h2>Data Penduduk Kota Yogyakarta</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kelurahan</th>
+                    <th>Jumlah Penduduk</th>
+                    <th>Laki Laki</th>
+                    <th>Perempuan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Tegalrejo</td>
+                    <td>18.327</td>
+                    <td>19.110</td>
+                    <td>37.437</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jetis </td>
+                    <td>13.111</td>
+                    <td>13.977</td>
+                    <td>27.088</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Gondokusuman</td>
+                    <td>20.837</td>
+                    <td>22.214</td>
+                    <td>43.051</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Danureja</td>
+                    <td>10.376</td>
+                    <td>10.777</td>
+                    <td>21.153</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Gedongtengen</td>
+                    <td>9.413</td>
+                    <td>9.800</td>
+                    <td>19.213</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Ngampilan</td>
+                    <td>8.853</td>
+                    <td>9.218</td>
+                    <td>18.071</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Wirobrajan</td>
+                    <td>13.772</td>
+                    <td>14.334</td>
+                    <td>28.106</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Mantrijeron</td>
+                    <td>17.122</td>
+                    <td>18.100</td>
+                    <td>35.222</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Kraton</td>
+                    <td>10.417</td>
+                    <td>11.043</td>
+                    <td>21.460</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Gondomanan</td>
+                    <td>7.148</td>
+                    <td>7.554</td>
+                    <td>14.702 </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Pakualam</td>
+                    <td>5.061</td>
+                    <td>5.561</td>
+                    <td>10.622</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Mergangsang</td>
+                    <td>15.310</td>
+                    <td>16.355</td>
+                    <td>31.665</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Umbulharjo</td>
+                    <td>34.928</td>
+                    <td>36.630</td>
+                    <td>71.558</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Kotagede</td>
+                    <td>17.387</td>
+                    <td>17.970</td>
+                    <td>35.357</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Peta Interaktif menggunakan Leaflet -->
+        <h2>Peta Kota Yogyakarta</h2>
+        <div id="map"></div>
+    </div>
+
+    <!-- Leaflet JS untuk peta -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Inisialisasi peta dengan koordinat Yogyakarta
+        var map = L.map('map').setView([-7.7956, 110.3695], 13);
+
+        // Tambahkan tile dari OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Tambahkan marker untuk Yogyakarta
+        L.marker([-7.7956, 110.3695]).addTo(map)
+            .bindPopup('Yogyakarta')
+            .openPopup();
+    </script>
+</body>
+</html>
